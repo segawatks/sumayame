@@ -51,140 +51,34 @@
   <link rel="icon" href="favicon.png" type="image/png">
 
   <style>
-    :root {
-      --bg: #f4fbff;
-      --ink: #1c2a3a;
-      --sub: #5a6b7e;
-      --accent: #2aa3d6;
-      --accent-deep: #0d6f9e;
-    }
-    * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
-      background: linear-gradient(180deg, #e9f6ff 0%, #ffffff 60%);
-      color: var(--ink);
-      -webkit-font-smoothing: antialiased;
-      line-height: 1.7;
-    }
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 64px 24px 96px;
-    }
-    .eyebrow {
-      display: inline-block;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      color: var(--accent-deep);
-      background: #d6efff;
-      padding: 6px 12px;
-      border-radius: 999px;
-      margin-bottom: 16px;
-    }
-    h1 {
-      font-size: 32px;
-      line-height: 1.35;
-      margin: 0 0 16px;
-      letter-spacing: 0.02em;
-    }
-    .lead {
-      font-size: 17px;
-      color: var(--sub);
-      margin: 0 0 32px;
-    }
-    .card {
-      background: #fff;
-      border: 1px solid #e1edf5;
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 6px 30px rgba(20, 80, 120, 0.06);
-      margin-bottom: 24px;
-    }
-    .card h2 {
-      font-size: 18px;
-      margin: 0 0 8px;
-    }
-    .card p {
-      margin: 0;
-      color: var(--sub);
-      font-size: 15px;
-    }
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 24px;
-      border-radius: 999px;
-      font-weight: 600;
-      font-size: 15px;
-      margin-top: 8px;
-      transition: transform .15s ease, background .15s ease;
-    }
-    .cta:hover { background: var(--accent-deep); transform: translateY(-1px); }
-    footer {
-      margin-top: 48px;
-      font-size: 12px;
-      color: #9aa9b8;
-      text-align: center;
-    }
-    footer a { color: inherit; }
+    body { -webkit-tap-highlight-color: transparent; }
+    a { display: block; }
+    img { display: block; width: 100%; height: auto; }
   </style>
 </head>
 <body>
-  <main>
-    <span class="eyebrow">iOS APP</span>
-    <h1>スマホをやめれば魚が育つ</h1>
-    <p class="lead">
-      App Store に移動しています…<br>
-      自動で開かない場合は、下のボタンを押してください。
-    </p>
-    <a class="cta" id="store-btn" href="itms-apps://itunes.apple.com/jp/app/id1669133971">App Store を開く →</a>
-
-    <div class="card" style="margin-top:24px; font-size:14px;">
-      <h2 style="font-size:14px; margin-bottom:8px;">それでも開かない場合</h2>
-      <p>X や Instagram の内蔵ブラウザだと App Store に飛ばないことがあります。画面右上（または右下）のメニューから <strong>「Safariで開く」</strong> を選ぶと、確実に App Store が起動します。</p>
-    </div>
-
-    <footer>
-      © Riko Design / Segawa
-    </footer>
-  </main>
+  <a id="store-link" href="https://apps.apple.com/jp/app/id1669133971">
+    <img src="top.png" alt="スマホをやめれば魚が育つ">
+  </a>
   <script>
-    // ====================================================
-    // App Store 自動リダイレクト（body末尾に配置：
-    //   head内に置くとクローラがメタタグ読む前に
-    //   遷移判定してカード生成が阻害される可能性があるため）
-    // ====================================================
-    (function () {
+    // どこをタップしても App Store へ
+    // - <a> の通常navigationを止めて、iOS のときだけ itms-apps:// 優先
+    // - JS無効環境でも <a href="https://apps.apple.com/..."> がそのまま機能
+    function goToStore (e) {
+      if (e) e.preventDefault();
       var ua = navigator.userAgent || '';
-      var isBot = /bot|crawler|spider|crawling|facebookexternalhit|twitterbot|slackbot|discordbot|linkedinbot|whatsapp|telegrambot/i.test(ua);
-      if (isBot) return;
-
       var isIOS = /iPhone|iPad|iPod/i.test(ua);
-      var itmsURL = 'itms-apps://itunes.apple.com/jp/app/id1669133971';
-      var httpsURL = 'https://apps.apple.com/jp/app/id1669133971';
-
       if (isIOS) {
-        window.location.href = itmsURL;
-        setTimeout(function () { window.location.href = httpsURL; }, 800);
-      } else {
-        window.location.href = httpsURL;
-      }
-    })();
-
-    // ボタンクリックも itms-apps://、ダメなら https://
-    document.getElementById('store-btn').addEventListener('click', function (e) {
-      var ua = navigator.userAgent || '';
-      if (/iPhone|iPad|iPod/i.test(ua)) {
+        window.location.href = 'itms-apps://itunes.apple.com/jp/app/id1669133971';
         setTimeout(function () {
           window.location.href = 'https://apps.apple.com/jp/app/id1669133971';
-        }, 800);
+        }, 600);
+      } else {
+        window.location.href = 'https://apps.apple.com/jp/app/id1669133971';
       }
-    });
+    }
+    document.body.addEventListener('click', goToStore);
   </script>
 </body>
 </html>
