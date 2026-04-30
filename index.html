@@ -7,50 +7,29 @@
   <meta name="description" content="スマホを置いて集中している間、水槽の魚たちが育っていく。やめたい気持ちを、かわいい魚を育てる楽しさに変えるiOSアプリ「スマやめ」。">
 
   <!-- ============================================ -->
-  <!-- App Store 即リダイレクト                       -->
-  <!-- クローラ(Twitterbot等)はメタタグだけ読むので    -->
-  <!-- カード表示には影響なし                          -->
-  <!-- ============================================ -->
-  <meta http-equiv="refresh" content="0; url=https://apps.apple.com/jp/app/id1669133971">
-  <script>
-    // クローラ判定: Twitterbot, Facebookbot, Slackbot, Discordbot 等は転送しない
-    (function () {
-      var ua = navigator.userAgent || '';
-      var isBot = /bot|crawler|spider|crawling|facebookexternalhit|twitterbot|slackbot|discordbot/i.test(ua);
-      if (!isBot) {
-        // location.replace で履歴を残さず即遷移
-        window.location.replace('https://apps.apple.com/jp/app/id1669133971');
-      }
-    })();
-  </script>
-
-  <!-- ============================================ -->
-  <!-- X (Twitter) App Card                          -->
-  <!-- ============================================ -->
-  <meta name="twitter:card" content="app">
-  <meta name="twitter:site" content="@rikodesign">
-  <meta name="twitter:description" content="スマホをやめれば、魚が育つ。集中時間がかわいい魚に変わるiOSアプリ。">
-  <meta name="twitter:app:country" content="JP">
-  <meta name="twitter:app:name:iphone" content="スマホをやめれば魚が育つ">
-  <meta name="twitter:app:id:iphone" content="1669133971">
-  <meta name="twitter:app:url:iphone" content="https://apps.apple.com/jp/app/id1669133971">
-  <meta name="twitter:app:name:ipad" content="スマホをやめれば魚が育つ">
-  <meta name="twitter:app:id:ipad" content="1669133971">
-  <meta name="twitter:app:url:ipad" content="https://apps.apple.com/jp/app/id1669133971">
-
-  <!-- ============================================ -->
   <!-- Open Graph (Facebook / Discord / Slack 等)    -->
   <!-- ============================================ -->
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://segawatks.github.io/sumayame/">
   <meta property="og:title" content="スマホをやめれば魚が育つ">
   <meta property="og:description" content="集中時間がかわいい魚に変わる。スマホ依存を、魚を育てる楽しさへ。">
-  <meta property="og:url" content="https://segawatks.github.io/sumayame/">
   <meta property="og:image" content="https://segawatks.github.io/sumayame/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="スマホをやめれば魚が育つ">
   <meta property="og:site_name" content="スマやめ">
   <meta property="og:locale" content="ja_JP">
+
+  <!-- ============================================ -->
+  <!-- X (Twitter) Card — summary_large_image方式     -->
+  <!-- (twitter:card=app は2023年以降ほぼ機能停止状態  -->
+  <!--  なので summary_large_image でカード表示を確実化)-->
+  <!-- ============================================ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@rikodesign">
+  <meta name="twitter:title" content="スマホをやめれば魚が育つ">
+  <meta name="twitter:description" content="スマホをやめれば、魚が育つ。集中時間がかわいい魚に変わるiOSアプリ。">
+  <meta name="twitter:image" content="https://segawatks.github.io/sumayame/og.png">
 
   <!-- ============================================ -->
   <!-- Apple Smart App Banner (Safari for iOS)       -->
@@ -161,13 +140,51 @@
     <h1>スマホをやめれば魚が育つ</h1>
     <p class="lead">
       App Store に移動しています…<br>
-      自動で開かない場合は、下のボタンからどうぞ。
+      自動で開かない場合は、下のボタンを押してください。
     </p>
-    <a class="cta" href="https://apps.apple.com/jp/app/id1669133971">App Store を開く →</a>
+    <a class="cta" id="store-btn" href="itms-apps://itunes.apple.com/jp/app/id1669133971">App Store を開く →</a>
+
+    <div class="card" style="margin-top:24px; font-size:14px;">
+      <h2 style="font-size:14px; margin-bottom:8px;">それでも開かない場合</h2>
+      <p>X や Instagram の内蔵ブラウザだと App Store に飛ばないことがあります。画面右上（または右下）のメニューから <strong>「Safariで開く」</strong> を選ぶと、確実に App Store が起動します。</p>
+    </div>
 
     <footer>
       © Riko Design / Segawa
     </footer>
   </main>
+  <script>
+    // ====================================================
+    // App Store 自動リダイレクト（body末尾に配置：
+    //   head内に置くとクローラがメタタグ読む前に
+    //   遷移判定してカード生成が阻害される可能性があるため）
+    // ====================================================
+    (function () {
+      var ua = navigator.userAgent || '';
+      var isBot = /bot|crawler|spider|crawling|facebookexternalhit|twitterbot|slackbot|discordbot|linkedinbot|whatsapp|telegrambot/i.test(ua);
+      if (isBot) return;
+
+      var isIOS = /iPhone|iPad|iPod/i.test(ua);
+      var itmsURL = 'itms-apps://itunes.apple.com/jp/app/id1669133971';
+      var httpsURL = 'https://apps.apple.com/jp/app/id1669133971';
+
+      if (isIOS) {
+        window.location.href = itmsURL;
+        setTimeout(function () { window.location.href = httpsURL; }, 800);
+      } else {
+        window.location.href = httpsURL;
+      }
+    })();
+
+    // ボタンクリックも itms-apps://、ダメなら https://
+    document.getElementById('store-btn').addEventListener('click', function (e) {
+      var ua = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(ua)) {
+        setTimeout(function () {
+          window.location.href = 'https://apps.apple.com/jp/app/id1669133971';
+        }, 800);
+      }
+    });
+  </script>
 </body>
 </html>
