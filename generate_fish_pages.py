@@ -116,7 +116,7 @@ TEMPLATE = """<!DOCTYPE html>
     }}
     .icon-link {{
       display: block;
-      margin: 0 0 32px;
+      margin: -30px 0 32px;
       transition: transform .15s ease, opacity .15s ease;
     }}
     .icon-link:active {{ transform: scale(0.96); opacity: 0.85; }}
