@@ -67,10 +67,15 @@
       padding: 24px;
     }
 
+    .icon-link {
+      display: inline-block;
+      margin: 0 auto 32px;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .icon-link:active { transform: scale(0.96); opacity: 0.85; }
     .icon {
       width: 140px;
       height: 140px;
-      margin: 0 auto 32px;
       border-radius: 32px;
       box-shadow: 0 10px 30px rgba(44, 91, 184, 0.25);
       display: block;
@@ -102,25 +107,29 @@
 </head>
 <body>
   <main>
-    <img class="icon" src="AppIcon.png" alt="スマホをやめれば魚が育つ">
+    <a class="icon-link store-link" href="https://apps.apple.com/jp/app/id1669133971">
+      <img class="icon" src="AppIcon.png" alt="スマホをやめれば魚が育つ">
+    </a>
 
-    <a class="store-badge" id="store-link" href="https://apps.apple.com/jp/app/id1669133971">
+    <a class="store-badge store-link" href="https://apps.apple.com/jp/app/id1669133971">
       <img src="ToStoreBtn.png" alt="App Storeからダウンロード">
     </a>
     <p class="cta-note">タップで App Store が開きます</p>
   </main>
 
   <script>
-    // App Store ボタンのタップ：iOS は itms-apps:// でアプリ起動を試みる
-    document.getElementById('store-link').addEventListener('click', function (e) {
-      var ua = navigator.userAgent || '';
-      if (/iPhone|iPad|iPod/i.test(ua)) {
-        e.preventDefault();
-        window.location.href = 'itms-apps://itunes.apple.com/jp/app/id1669133971';
-        setTimeout(function () {
-          window.location.href = 'https://apps.apple.com/jp/app/id1669133971';
-        }, 600);
-      }
+    // App Store リンク（アイコン・バッジ両方）：iOS は itms-apps:// でアプリ起動を試みる
+    Array.prototype.forEach.call(document.querySelectorAll('.store-link'), function (el) {
+      el.addEventListener('click', function (e) {
+        var ua = navigator.userAgent || '';
+        if (/iPhone|iPad|iPod/i.test(ua)) {
+          e.preventDefault();
+          window.location.href = 'itms-apps://itunes.apple.com/jp/app/id1669133971';
+          setTimeout(function () {
+            window.location.href = 'https://apps.apple.com/jp/app/id1669133971';
+          }, 600);
+        }
+      });
     });
   </script>
 </body>
