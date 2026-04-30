@@ -9,7 +9,7 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://segawatks.github.io/sumayame/lp/fish/KuraionEnzelu2/">
-  <meta property="og:title" content="スマホ依存防止アプリ">
+  <meta property="og:title" content="App Store">
   <meta property="og:description" content="集中時間がかわいい魚に変わる。スマホ依存を、魚を育てる楽しさへ。">
   <meta property="og:image" content="https://segawatks.github.io/sumayame/lp/fish/KuraionEnzelu2/og.png">
   <meta property="og:image:width" content="560">
@@ -21,7 +21,7 @@
   <!-- X (Twitter) Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@rikodesign">
-  <meta name="twitter:title" content="スマホ依存防止アプリ">
+  <meta name="twitter:title" content="App Store">
   <meta name="twitter:description" content="スマホをやめれば、魚が育つ。集中時間がかわいい魚に変わるiOSアプリ。">
   <meta name="twitter:image" content="https://segawatks.github.io/sumayame/lp/fish/KuraionEnzelu2/og.png">
 
@@ -51,36 +51,44 @@
       align-items: center;
       justify-content: center;
     }
-    main { text-align: center; padding: 24px; }
+    main {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
     .icon-link {
-      display: inline-block;
-      margin: 0 auto 32px;
+      display: block;
+      margin: 0 0 32px;
       transition: transform .15s ease, opacity .15s ease;
     }
     .icon-link:active { transform: scale(0.96); opacity: 0.85; }
     .icon {
-      width: 140px; height: 140px;
-      border-radius: 32px;
+      width: 35vw;
+      height: 35vw;
+      max-width: 160px;
+      max-height: 160px;
+      min-width: 96px;
+      min-height: 96px;
+      border-radius: 22%;
       box-shadow: 0 10px 30px rgba(44, 91, 184, 0.25);
       display: block;
     }
     .store-badge {
-      display: inline-block;
+      display: block;
       transition: transform .15s ease, opacity .15s ease;
-      margin-bottom: 12px;
+      margin: 0 0 12px;
     }
     .store-badge:active { transform: scale(0.96); opacity: 0.85; }
     .store-badge img {
       display: block;
-      width: 200px;
-      max-width: 60vw;
+      width: 50vw;
+      max-width: 220px;
+      min-width: 140px;
       height: auto;
     }
-    .cta-note { font-size: 13px; color: #1a3d80; }
-    @media (min-width: 600px) {
-      .icon { width: 160px; height: 160px; border-radius: 36px; }
-      .store-badge img { width: 220px; }
-    }
+    .cta-note { font-size: 13px; color: #1a3d80; margin: 0; }
   </style>
 </head>
 <body>
