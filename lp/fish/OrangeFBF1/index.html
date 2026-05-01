@@ -3,6 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CFDC0LDR85"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-CFDC0LDR85');
+  </script>
+
   <title>スマホをやめれば魚が育つ — スマホ依存防止アプリ</title>
   <meta name="description" content="スマホを置いて集中している間、水槽の魚たちが育っていく。やめたい気持ちを、かわいい魚を育てる楽しさに変えるiOSアプリ「スマやめ」。">
 
@@ -31,7 +41,7 @@
   <!-- App Links -->
   <meta property="al:ios:app_store_id" content="1669133971">
   <meta property="al:ios:app_name" content="スマホをやめれば魚が育つ">
-  <meta property="al:ios:url" content="https://apps.apple.com/jp/app/id1669133971">
+  <meta property="al:ios:url" content="https://apps.apple.com/jp/app/id1669133971?ct=lp_x_fish&mt=8">
   <meta property="al:web:url" content="https://segawatks.github.io/sumayame/lp/fish/OrangeFBF1/">
 
   <link rel="canonical" href="https://segawatks.github.io/sumayame/lp/fish/OrangeFBF1/">
@@ -93,10 +103,10 @@
 </head>
 <body>
   <main>
-    <a class="icon-link store-link" href="https://apps.apple.com/jp/app/id1669133971">
+    <a class="icon-link store-link" href="https://apps.apple.com/jp/app/id1669133971?ct=lp_x_fish&mt=8">
       <img class="icon" src="../../AppIcon.png" alt="スマホをやめれば魚が育つ">
     </a>
-    <a class="store-badge store-link" href="https://apps.apple.com/jp/app/id1669133971">
+    <a class="store-badge store-link" href="https://apps.apple.com/jp/app/id1669133971?ct=lp_x_fish&mt=8">
       <img src="../../ToStoreBtn.png" alt="App Storeからダウンロード">
     </a>
     <p class="cta-note">タップで App Store が開きます</p>
@@ -104,12 +114,17 @@
   <script>
     Array.prototype.forEach.call(document.querySelectorAll('.store-link'), function (el) {
       el.addEventListener('click', function (e) {
+        // GA4: クリック計測（魚種に関係なく一律 click_store 1件）
+        if (typeof gtag === 'function') {
+          gtag('event', 'click_store');
+        }
+        // iOS: itms-apps:// でアプリ起動を試みる
         var ua = navigator.userAgent || '';
         if (/iPhone|iPad|iPod/i.test(ua)) {
           e.preventDefault();
-          window.location.href = 'itms-apps://itunes.apple.com/jp/app/id1669133971';
+          window.location.href = 'itms-apps://itunes.apple.com/jp/app/id1669133971?ct=lp_x_fish&mt=8';
           setTimeout(function () {
-            window.location.href = 'https://apps.apple.com/jp/app/id1669133971';
+            window.location.href = 'https://apps.apple.com/jp/app/id1669133971?ct=lp_x_fish&mt=8';
           }, 600);
         }
       });
