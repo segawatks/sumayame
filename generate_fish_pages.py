@@ -75,7 +75,7 @@ TEMPLATE = """<!DOCTYPE html>
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="{fish_url}">
-  <meta property="og:title" content="AppStore 無料">
+  <meta property="og:title" content="App Store">
   <meta property="og:description" content="集中時間がかわいい魚に変わる。スマホ依存を、魚を育てる楽しさへ。">
   <meta property="og:image" content="{img_url}">
   <meta property="og:image:width" content="{img_w}">
@@ -87,7 +87,7 @@ TEMPLATE = """<!DOCTYPE html>
   <!-- X (Twitter) Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@rikodesign">
-  <meta name="twitter:title" content="AppStore 無料">
+  <meta name="twitter:title" content="App Store">
   <meta name="twitter:description" content="スマホをやめれば、魚が育つ。集中時間がかわいい魚に変わるiOSアプリ。">
   <meta name="twitter:image" content="{img_url}">
 
