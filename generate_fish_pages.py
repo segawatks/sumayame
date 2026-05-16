@@ -97,7 +97,7 @@ TEMPLATE = """<!DOCTYPE html>
   <!-- App Links -->
   <meta property="al:ios:app_store_id" content="1669133971">
   <meta property="al:ios:app_name" content="スマホをやめれば魚が育つ">
-  <meta property="al:ios:url" content="https://apps.apple.com/jp/app/id1669133971?ct=lp_x_fish&mt=8">
+  <meta property="al:ios:url" content="https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xpost&mt=8">
   <meta property="al:web:url" content="{fish_url}">
 
   <link rel="canonical" href="{fish_url}">
@@ -159,10 +159,10 @@ TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
   <main>
-    <a class="icon-link store-link" href="https://apps.apple.com/jp/app/id1669133971?ct=lp_x_fish&mt=8">
+    <a class="icon-link store-link" href="https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xpost&mt=8">
       <img class="icon" src="../../AppIcon.png" alt="スマホをやめれば魚が育つ">
     </a>
-    <a class="store-badge store-link" href="https://apps.apple.com/jp/app/id1669133971?ct=lp_x_fish&mt=8">
+    <a class="store-badge store-link" href="https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xpost&mt=8">
       <img src="../../ToStoreBtn.png" alt="App Storeからダウンロード">
     </a>
     <p class="cta-note">タップで App Store が開きます</p>
@@ -178,9 +178,9 @@ TEMPLATE = """<!DOCTYPE html>
         var ua = navigator.userAgent || '';
         if (/iPhone|iPad|iPod/i.test(ua)) {{
           e.preventDefault();
-          window.location.href = 'itms-apps://itunes.apple.com/jp/app/id1669133971?ct=lp_x_fish&mt=8';
+          window.location.href = 'itms-apps://itunes.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xpost&mt=8';
           setTimeout(function () {{
-            window.location.href = 'https://apps.apple.com/jp/app/id1669133971?ct=lp_x_fish&mt=8';
+            window.location.href = 'https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xpost&mt=8';
           }}, 600);
         }}
       }});

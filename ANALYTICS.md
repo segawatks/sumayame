@@ -44,8 +44,8 @@
 
 | 項目 | 値 |
 |---|---|
-| Campaign Token (ct) | `lp_x_fish` |
-| 仕込みパラメータ | `?ct=lp_x_fish&mt=8` |
+| Campaign Token (ct) | `xpost` |
+| 仕込みパラメータ | `?ct=xpost&mt=8` |
 | 適用先 | 全アンカー / al:ios:url / itms-apps:// / https:// JS遷移 |
 | ダッシュボード | https://appstoreconnect.apple.com/ → App Analytics → ソース |
 | 反映遅延 | 24〜48時間 |
