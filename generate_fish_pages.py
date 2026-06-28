@@ -17,7 +17,7 @@ TWEET_IMG = BASE / "TweetImg"
 SITE_BASE = "https://segawatks.github.io/sumayame/lp/fish"
 
 # 削除フラグ付きの魚（コメントで「削除」と書かれているもの）
-DELETED = {"Kurione4", "AdeliaePen4", "HigePen4"}
+DELETED = set()
 
 # enum から「名前」だけ抽出
 # (NONAME, MAXValue, _en, 削除 を除外)
@@ -49,8 +49,10 @@ FISH_LIST = [
     "Shironaga_Big5", "PenEmp_Big5",
     # Ver17.0.16で追加
     "HigePen0",
-    # Ver18.0.0で追加 (画像が無いものはスキップ)
+    # Ver18.0.0で追加
     "AdeliaePen1", "Kurione0",
+    # 旧enum名（backward互換: 旧バージョンでシェアされたURL対応）
+    "AdeliaePen4", "Kurione4", "HigePen4",
 ]
 
 # ===== HTMLテンプレート =====
@@ -97,7 +99,7 @@ TEMPLATE = """<!DOCTYPE html>
   <!-- App Links -->
   <meta property="al:ios:app_store_id" content="1669133971">
   <meta property="al:ios:app_name" content="スマホをやめれば魚が育つ">
-  <meta property="al:ios:url" content="https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xpost&mt=8">
+  <meta property="al:ios:url" content="https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xxsxpost2&mt=8">
   <meta property="al:web:url" content="{fish_url}">
 
   <link rel="canonical" href="{fish_url}">
@@ -159,10 +161,10 @@ TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
   <main>
-    <a class="icon-link store-link" href="https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xpost&mt=8">
+    <a class="icon-link store-link" href="https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xxsxpost2&mt=8">
       <img class="icon" src="../../AppIcon.png" alt="スマホをやめれば魚が育つ">
     </a>
-    <a class="store-badge store-link" href="https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xpost&mt=8">
+    <a class="store-badge store-link" href="https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xxsxpost2&mt=8">
       <img src="../../ToStoreBtn.png" alt="App Storeからダウンロード">
     </a>
     <p class="cta-note">タップで App Store が開きます</p>
@@ -178,9 +180,9 @@ TEMPLATE = """<!DOCTYPE html>
         var ua = navigator.userAgent || '';
         if (/iPhone|iPad|iPod/i.test(ua)) {{
           e.preventDefault();
-          window.location.href = 'itms-apps://itunes.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xpost&mt=8';
+          window.location.href = 'itms-apps://itunes.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xxsxpost2&mt=8';
           setTimeout(function () {{
-            window.location.href = 'https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xpost&mt=8';
+            window.location.href = 'https://apps.apple.com/app/apple-store/id1669133971?pt=1324369&ct=xxsxpost2&mt=8';
           }}, 600);
         }}
       }});
